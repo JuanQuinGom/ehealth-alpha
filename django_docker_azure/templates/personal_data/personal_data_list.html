@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>No. Folio</th>
+    <th>Nombre</th>
+    <th>Apellido Paterno</th>
+    <th>Apellido Materno</th>
+    <th>Edad</th>
+    <th>Fecha de Nacimiento</th>
+    <th>Domicilio</th>
+  </tr>
+</thead>
+<tbody>
+  {% if personal %}
+  {% for personal in personal %}
+  <tr>
+    <td>{{personal.folio}}</td>
+    <td>{{personal.Nombre}}</td>
+    <td>{{personal.apellido_paterno}}</td>
+    <td>{{personal.apellido_materno}}</td>
+    <td>{{personal.edad}}</td>
+    <td>{{personal.fecha_nacimiento}}</td>
+    <td>{{personal.domicilio}}</td>
+  </tr>
+  {% endfor %}
+
+  {% else %}
+  <h1> No hay registros</h1>
+  {% endif %}
+</tbody>
+
+</table>
+
+{% endblock %}
