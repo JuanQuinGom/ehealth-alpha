@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 
+from ..general.models import Vacunas
 from ..general.forms import GeneralForm
 # Create your views here.
 
@@ -16,5 +17,9 @@ def general_view(request):
         return redirect('general:index_g')
     else:
         form = GeneralForm()
-
     return render(request, 'general/general_form.html',{'form':form})
+
+def general_list{request}:
+    vacunas = Vacunas.objects.all()
+    contexto = { 'vacunas' : vacunas}
+    return render (request,'general/general_list.html')

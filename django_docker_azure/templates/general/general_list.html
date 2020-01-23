@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<table class="table table-bordered">
+<thead>
+  <tr>
+    <th>Vacuna</th>
+  </tr>
+</thead>
+<tbody>
+  {% if general %}
+  {% for general in general %}
+  <tr>
+    <td>{{general.folio}}</td>
+    <td>{{general.nombre_vacuna}}</td>
+  </tr>
+  {% endfor %}
+
+  {% else %}
+  <h1> No hay registros</h1>
+  {% endif %}
+</tbody>
+
+</table>
+
+{% endblock %}

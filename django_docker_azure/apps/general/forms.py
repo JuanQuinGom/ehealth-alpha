@@ -7,13 +7,15 @@ class GeneralForm(forms.ModelForm):
         model = Vacunas
 
         fields = [
-        'nombre',
+        'nombre_vacuna',
         ]
         labels = { #etiquetas al ingresar
-        'nombre' : 'Nombre de Vacuna',
+        'folio_vacuna' : 'Folio o Codigo de Vacuna'
+        'nombre_vacuna' : 'Nombre de Vacuna',
         }
         widgets = { #etiquetas a pintar tipo html
-        'nombre': forms.TextInput(attrs={'class':'form-control'}),
+        'folio_vacuna' : forms.TextInput(attrs={'class': form-control}),
+        'nombre_vacuna': forms.TextInput(attrs={'class':'form-control'}),
         #para foriegnKey usan forms.Select
         #para manyToMany forms.CheckboxSelectMultiple(),
         }
