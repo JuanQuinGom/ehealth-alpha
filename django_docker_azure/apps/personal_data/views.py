@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.core.urlresolvers import reverse_lazy
 
 from ..personal_data.models import Person # para lista
 from ..personal_data.forms import PersonForm
@@ -35,3 +37,33 @@ def personal_edit(request, folio):
             form.save()
         return redirect('personal_data:personal_data_list')
     return render(request,'personal_data/personal_data_form.html',{'form' : form})
+
+def personal_delete(request, folio):
+    personal = Person.objects.get(id=folio)
+    if request.method == 'POST':
+        personal.delete()
+        return redirect('persona_data/personal_data_list')
+    return render(request, 'personal_data/personal_data_delete.html',{'personal_data':personal})
+
+
+#vista basada en clases
+class PersonaList(ListView):
+    model = Person
+    template_name = 'personal_data/personal_data_list.html'
+
+class PersonaCreate(CreateView):
+    model = Person
+    form_class = PersonForm
+    template_name = 'personal_data/personal_data_form.html'
+    success_url = reverse_lazy('personal_data:personal_data_list')
+
+class PersonaUpdate(UpdateView):
+    model = Person
+    form_class = PersonForm
+    template_name = 'personal_data/personal_data_form.html'
+    success_url = reverse_lazy('personal_data:personal_data_list')
+
+class PersonaDelete(DeleteView):
+    model = Person
+    template_name = 'personal_data/personal_data_form.html'
+    success_url = reverse_lazy('personal_data:personal_data_list')

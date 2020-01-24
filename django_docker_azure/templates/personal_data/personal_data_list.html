@@ -12,11 +12,12 @@
     <th>Edad</th>
     <th>Fecha de Nacimiento</th>
     <th>Domicilio</th>
+    <th>Opciones</th>
   </tr>
 </thead>
 <tbody>
-  {% if personal %}
-  {% for personal in personal %}
+  {% if object_list %}
+  {% for personal in object_list %}
   <tr>
     <td>{{personal.folio}}</td>
     <td>{{personal.Nombre}}</td>
@@ -25,6 +26,10 @@
     <td>{{personal.edad}}</td>
     <td>{{personal.fecha_nacimiento}}</td>
     <td>{{personal.domicilio}}</td>
+    <td>
+      <a class="btn btn-primary" href="{% url 'personal_data:personal_data_edit' personal.folio  %}">Editar</a>
+      <a class="btn btn-danger" href="{% url 'personal_data:personal_data_delete' personal.folio  %}">Eliminar</a>
+    </td>
   </tr>
   {% endfor %}
 
