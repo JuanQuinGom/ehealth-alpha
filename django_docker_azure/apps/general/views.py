@@ -19,7 +19,7 @@ def general_view(request):
         form = GeneralForm()
     return render(request, 'general/general_form.html',{'form':form})
 
-def general_list{request}:
-    vacunas = Vacunas.objects.all()
-    contexto = { 'vacunas' : vacunas}
-    return render (request,'general/general_list.html')
+#def general_list{request}:
+#    vacunas = Vacunas.objects.all()
+#    contexto = { 'vacunas' : vacunas}
+#    return render (request,'general/general_list.html')

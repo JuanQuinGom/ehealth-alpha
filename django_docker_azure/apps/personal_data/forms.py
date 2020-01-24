@@ -26,11 +26,11 @@ class PersonForm(forms.ModelForm):
         }
 
         widgets = {
-        'folio' : forms.TextInput(attrs={'class':'form-control'})
-        'nombre' : forms.TextInput(attrs={'class':'form-control'})
-        'apellido_paterno' : forms.TextInput(attrs={'class':'form-control'})\
-        'apellido_materno' : forms.TextInput(attrs={'class':'form-control'})
-        'edad' : forms.TextInput(attrs={'class':'form-control'})
-        'fecha_nacimiento' : forms.TextInput(attrs={'class':'form-control'})
-        'domicilio' : forms.TextInput(attrs={'class':'form-control'})
+        'folio' : forms.TextInput(attrs={'class':'form-control'}),
+        'nombre' : forms.TextInput(attrs = {'class':'form-control'}),
+        'apellido_paterno' : forms.TextInput(attrs={'class':'form-control'}),
+        'apellido_materno' : forms.TextInput(attrs={'class':'form-control'}),
+        'edad' : forms.TextInput(attrs={'class':'form-control'}),
+        'fecha_nacimiento' : forms.TextInput(attrs={'class':'form-control'}),
+        'domicilio' : forms.TextInput(attrs={'class':'form-control'}),
         }
