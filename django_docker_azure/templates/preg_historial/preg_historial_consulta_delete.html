@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<form method="post">
+  {% csrf_token %}
+  <h3>Desea eliminar la consulta de {{object.persona.nombre object.persona.apellido_paterno object.persona.apellido_materno}}</h3>
+  <button type="submit" class="btn btn-danger"> Si, eliminar </button>
+
+  <a class="btn btn-default" href="{% url personal_data:personal_data_list%}">Cancelar</a>
+
+</form>
+{% endblock %}

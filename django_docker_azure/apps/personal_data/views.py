@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.core import serializers
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 
@@ -14,6 +15,10 @@ def personal_list(request):
     personal = Person.objects.all()
     contexto= {'personal': personal}
     return render (request, 'personal_data/personal_data_list.html',contexto)
+
+def listado(request):
+    lista = serializers.serialize('json', Person.objects.all())
+    return HttpResponse(lista, content_type='application/json')
 
 def personal_view(request):
     #vista basada en funciones
@@ -50,6 +55,7 @@ def personal_delete(request, folio):
 class PersonaList(ListView):
     model = Person
     template_name = 'personal_data/personal_data_list.html'
+    paginate_by =  2
 
 class PersonaCreate(CreateView):
     model = Person
