@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+
+{% block header%}
+<h3>Datos Personales</h3>
+{% endblock %}
+
+{% block content %}
+<table >
+  <head>
+    <tr class="table table-dark">
+      <td>#</td>
+      <td>Folio</td>
+      <td>Nombre</td>
+      <td>Apellido Paterno</td>
+      <td>Apellido Materno</td>
+      <td>Edad</td>
+      <td>Fecha Nacimiento</td>
+      <td>Domicilio</td>
+    </tr>
+  </head>
+  <tbody>
+    {% if object_list %}
+    {% for Datos_Personas in object_list %}
+    <tr class="table-light">
+      <td>{{ Datos_Personas.id }}</td>
+      <td>{{Datos_Personas.folio}}</td>
+      <td>{{Datos_Personas.nombre}}</td>
+      <td>{{Datos_Personas.apellido_paterno}}</td>
+      <td>{{Datos_Personas.apellido_materno}}</td>
+      <td>{{Datos_Personas.edad}}</td>
+      <td>{{Datos_Personas.fecha_nacimiento}}</td>
+      <td>{{Datos_Personas.domicilio}}</td>
+      <td>
+        <a href="{% url 'datos_personales:datos_personales_editar' Datos_Personas.id %}" class="btn btn-primary">Editar</a>
+        <a href="{% url 'datos_personales:datos_personales_eliminar' Datos_Personas.id %}" class="btn btn-danger">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+  </tbody>
+
+</table>
+{% endblock %}

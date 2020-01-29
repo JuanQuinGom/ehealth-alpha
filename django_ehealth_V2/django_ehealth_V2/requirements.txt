@@ -1,0 +1,4 @@
+# requirements.txt content
+django
+pyodbc
+django-pyodbc-azure
