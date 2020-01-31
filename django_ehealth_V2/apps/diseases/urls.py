@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from ..personal_data.views import
+from ..personal_data.views import EnfermedadesList, EnfermedadesCreate, EnfermedadesDelete, EnfermedadesUpdate
 
 urlpatterns = [
     #url(r'^index$', index_personal_data, name = 'enfermedades'),
