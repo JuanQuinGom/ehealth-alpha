@@ -9,3 +9,4 @@ from ..diseases.models import Enfermedades
 class Diagnosticos(models.Model):
     folio = models.ForeignKey(Datos_Personas,blank=False,null=True,on_delete=models.CASCADE)
     enfermedades = models.ManyToManyField(Enfermedades)
+    observaciones = models.TextField()
