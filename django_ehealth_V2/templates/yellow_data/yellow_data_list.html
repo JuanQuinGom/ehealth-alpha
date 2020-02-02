@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+
+{% block header%}
+<h3>Historial de Amarillo</h3>
+{% endblock %}
+
+{% block content %}
+<table >
+  <head>
+    <tr class="table table-dark">
+      <td>#</td>
+      <td>Folio</td>
+      <td>FUM</td>
+      <td>FPP</td>
+      <td>Tipo sanguineo</td>
+      <td>Peso</td>
+      <td>Talla</td>
+      <td>Etnia</td>
+      <td>Fecha de último embarazo</td>
+      <td>Estudios</td>
+      <td>Cantidad de fetos</td>
+    </tr>
+  </head>
+  <tbody>
+    {% if object_list %}
+    {% for Datos_Amarillo in object_list %}
+    <tr class="table-light">
+      <td>{{Datos_Amarillo.id}}</td>
+      <td>{{ Datos_Amarillo.folio }}</td>
+      <td>{{Datos_Amarillo.FUM}}</td>
+      <td>{{Datos_Amarillo.FPP}}</td>
+      <td>{{Datos_Amarillo.tipo_sangre}}</td>
+      <td>{{Datos_Amarillo.peso}}</td>
+      <td>{{Datos_Amarillo.talla}}</td>
+      <td>{{Datos_Amarillo.etnia}}</td>
+      <td>{{Datos_Amarillo.fecha_embarazo_anterior}}</td>
+      <td>{{Datos_Amarillo.estudios}}</td>
+      <td>{{Datos_Amarillo.cantidad_fetos}}</td>
+      <td>
+        <a href="{% url 'datos_amarillo:datos_amarillo_editar' Datos_Amarillo.id %}" class="btn btn-primary">Editar</a>
+        <a href="{% url 'datos_amarillo:datos_amarillo_eliminar' Datos_Amarillo.id %}" class="btn btn-danger">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+  </tbody>
+
+</table>
+{% endblock %}

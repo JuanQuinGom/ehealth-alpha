@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 from ..personal_data.models import Datos_Personas
 # Create your models here.
+class Dispositivos(models.Model):
     folio = models.ForeignKey(Datos_Personas,null=True,blank=False,on_delete=models.CASCADE)
     no_registro= models.IntegerField()
     id_device=models.IntegerField()

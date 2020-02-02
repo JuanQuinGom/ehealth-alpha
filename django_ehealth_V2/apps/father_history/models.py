@@ -8,6 +8,7 @@ from ..diseases.models import Enfermedades
 # Create your models here.
 class Historial_Padres(models.Model):
     folio = models.ForeignKey(Datos_Personas,null=True,blank=False,on_delete=models.CASCADE)
+    nombre = models.TextField()
+    apellido_paterno = models.TextField()
+    apellido_materno = models.TextField()
     enfermedades = models.ManyToManyField(Enfermedades)
-
- 

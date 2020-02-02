@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+
+{% block header%}
+<h3>Historial del Paciente</h3>
+{% endblock %}
+
+{% block content %}
+<table >
+  <head>
+    <tr class="table table-dark">
+      <td>#</td>
+      <td>Folio</td>
+      <td>Nombre</td>
+      <td>Apellido Paterno</td>
+      <td>Apellido Materno</td>
+      <td>Enfermedades</td>
+    </tr>
+  </head>
+  <tbody>
+    {% if object_list %}
+    {% for Historial_Padres in object_list %}
+    <tr class="table-light">
+      <td>{{ Historial_Padres.id }}</td>
+      <td>{{Historial_Padres.folio}}</td>
+      <td>{{Historial_Padres.apellido_paterno}}</td>
+      <td>{{Historial_Padres.apellido_materno}}</td>
+      <td>{{Historial_Padres.enfermedades}}</td>
+      <td>
+        <a href="{% url 'historial_padres:historial_padres_editar' Historial_Padres.id %}" class="btn btn-primary">Editar</a>
+        <a href="{% url 'historial_padres:historial_padres_eliminar' Historial_Padres.id %}" class="btn btn-danger">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+  </tbody>
+
+</table>
+{% endblock %}

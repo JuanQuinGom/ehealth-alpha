@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  <h3>¿Desea eliminar el registro {{object.folio}}?</h3>
+  <button type="submit" class="btn btn-danger">Eliminar</button>
+  <a class="btn btn-default" href="{% url 'vacunaciones:vacunaciones_listar' %}">Cancelar</a>
+</form>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

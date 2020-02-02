@@ -27,7 +27,7 @@ class ConsultasForm(forms.ModelForm):
     }
 
     widgets = {
-    'folio' : forms.TextInput(attrs={'class':'form-control'}),
+    'folio' : forms.Select(),
     'no_consulta' : forms.TextInput(attrs = {'class':'form-control'}),
     'fecha_consulta' : forms.TextInput(attrs={'class':'form-control'}),
     'edad_gestacional' : forms.TextInput(attrs={'class':'form-control'}),

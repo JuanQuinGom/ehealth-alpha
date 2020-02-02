@@ -1,0 +1,50 @@
+{% extends 'base/base.html' %}
+
+{% block header%}
+<h3>Historial Materno del Paciente</h3>
+{% endblock %}
+
+{% block content %}
+<table >
+  <head>
+    <tr class="table table-dark">
+      <td>#</td>
+      <td>Folio</td>
+      <td>Parejas sexuales</td>
+      <td>Gestas previas</td>
+      <td>Partos</td>
+      <td>Abortos</td>
+      <td>Cesáreas</td>
+      <td>Vaginales</td>
+      <td>Nacidos Vivos</td>
+      <td>Viven</td>
+    </tr>
+  </head>
+  <tbody>
+    {% if object_list %}
+    {% for Datos_Obstetricos in object_list %}
+    <tr class="table-light">
+      <td>{{ Datos_Obstetricos.id }}</td>
+      <td>{{Datos_Obstetricos.folio}}</td>
+      <td>{{Datos_Obstetricos.parejas_sexuales}}</td>
+      <td>{{Datos_Obstetricos.gestas_previas}}</td>
+      <td>{{Datos_Obstetricos.partos}}</td>
+      <td>{{Datos_Obstetricos.abortos}}</td>
+      <td>{{Datos_Obstetricos.cesareas}}</td>
+      <td>{{Datos_Obstetricos.vaginales}}</td>
+      <td>{{Datos_Obstetricos.nacidos_vivos}}</td>
+      <td>{{Datos_Obstetricos.viven}}</td>
+      <td>
+        <a href="{% url 'datos_obstetricos:datos_obstetricos_editar' Datos_Obstetricos.id %}" class="btn btn-primary">Editar</a>
+        <a href="{% url 'datos_obstetricos:datos_obstetricos_eliminar' Datos_Obstetricos.id %}" class="btn btn-danger">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+  </tbody>
+
+</table>
+{% endblock %}

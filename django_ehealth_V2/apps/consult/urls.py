@@ -1,6 +1,7 @@
+
 from django.conf.urls import url
 
-from ..personal_data.views import ConsultasList, ConsultasCreate, ConsultasDelete, ConsultasUpdate
+from ..consult.views import ConsultasList, ConsultasCreate, ConsultasDelete, ConsultasUpdate
 
 urlpatterns = [
     #url(r'^index$', index_personal_data, name = 'Consultas'),

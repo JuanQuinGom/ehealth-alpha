@@ -1,8 +1,8 @@
 from django import forms
 
-from ..diseases.models import Enfermedades
+from ..diseases.models import Dispositivos
 
-class EnfermedadesForm(forms.ModelForm):
+class DispositivosForm(forms.ModelForm):
     fields=[
     'folio',
     'no_registro',
@@ -25,7 +25,12 @@ class EnfermedadesForm(forms.ModelForm):
     }
 
     widgets = {
-    'codigo' : forms.TextInput(attrs={'class':'form-control'}),
-    'nombre_enfermedad' : forms.TextInput(attrs = {'class':'form-control'}),
-    'descripcion' : forms.TextInput(attrs={'class':'form-control'}),
+    'folio': forms.TextInput(attrs={'class':'form-control'}),
+    'no_registro': forms.TextInput(attrs={'class':'form-control'}),
+    'id_device' : forms.TextInput(attrs={'class':'form-control'}),
+    'fecha_registro': forms.TextInput(attrs={'class':'form-control'}),
+    'presion_sistolica': forms.TextInput(attrs={'class':'form-control'}),
+    'presion_diastolica' : forms.TextInput(attrs={'class':'form-control'}),
+    'pulso_cardiaco': forms.TextInput(attrs={'class':'form-control'}),
+    'temperatura': forms.TextInput(attrs={'class':'form-control'}),
     }

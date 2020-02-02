@@ -18,7 +18,7 @@ class DiagnosticosForm(forms.ModelForm):
         }
 
         widgets = {
-        'folio' : forms.TextInput(attrs={'class':'form-control'}),
+        'folio' : forms.Select(),
         'enfermedades' : forms.TextInput(attrs = {'class':'form-control'}),
         'observaciones' : forms.TextInput(attrs={'class':'form-control'}),
         }

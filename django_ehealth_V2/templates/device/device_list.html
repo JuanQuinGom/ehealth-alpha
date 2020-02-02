@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+
+{% block header%}
+<h3>Datos de Dispositivos</h3>
+{% endblock %}
+
+{% block content %}
+<table >
+  <head>
+    <tr class="table table-dark">
+      <td>#</td>
+      <td>Folio</td>
+      <td># Registro</td>
+      <td>ID dispositivo</td>
+      <td>Fecha Registro</td>
+      <td>Presión Diastólica</td>
+      <td>Presión Sistólica</td>
+      <td>Pulso Cardiaco</td>
+      <td>Temperatura</td>
+    </tr>
+  </head>
+  <tbody>
+    {% if object_list %}
+    {% for Dispositivos in object_list %}
+    <tr class="table-light">
+      <td>{{ Dispositivos.id }}</td>
+      <td>{{ Dispositivos.folio }}</td>
+      <td>{{ Dispositivos.no_registro }}</td>
+      <td>{{ Dispositivos.id_device }}</td>
+      <td>{{ Dispositivos.fecha_registro }}</td>
+      <td>{{ Dispositivos.presion_diastolica }}</td>
+      <td>{{ Dispositivos.presion_sistolica }}</td>
+      <td>{{ Dispositivos.pulso_cardiaco }}</td>
+      <td>{{ Dispositivos.temperatura }}</td>
+
+      <td>
+        <a href="{% url 'dispositivos:dispositivos_editar' Dispositivos.id %}" class="btn btn-primary">Editar</a>
+        <a href="{% url 'dispositivos:dispositivos_eliminar' Dispositivos.id %}" class="btn btn-danger">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+  </tbody>
+
+</table>
+{% endblock %}

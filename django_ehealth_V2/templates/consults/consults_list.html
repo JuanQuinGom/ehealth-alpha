@@ -1,0 +1,51 @@
+{% extends 'base/base.html' %}
+
+{% block header%}
+<h3>Consultas</h3>
+{% endblock %}
+
+{% block content %}
+<table >
+  <head>
+    <tr class="table table-dark">
+      <td>#</td>
+      <td>Folio</td>
+      <td># Consulta</td>
+      <td>Fecha Consulta</td>
+      <td>Edad Gestacional</td>
+      <td>Peso</td>
+      <td>Altura Uterina</td>
+      <td>FCF</td>
+      <td>Freq. Respiratoria</td>
+      <td>Glucemia</td>
+    </tr>
+  </head>
+  <tbody>
+    {% if object_list %}
+    {% for Consultas in object_list %}
+    <tr class="table-light">
+      <td>{{ Consultas.id }}</td>
+      <td>{{ Consultas.folio }}</td>
+      <td>{{ Consultas.no_consulta }}</td>
+      <td>{{ Consultas.fecha_consulta }}</td>
+      <td>{{ Consultas.edad_gestacional }}</td>
+      <td>{{ Consultas.peso }}</td>
+      <td>{{ Consultas.altura_uterina }}</td>
+      <td>{{ Consultas.FCF }}</td>
+      <td>{{ Consultas.freq_respiratoria }}</td>
+      <td>{{ Consultas.glucemia }}</td>
+
+      <td>
+        <a href="{% url 'consultas:consultas_editar' Dispositivos.id %}" class="btn btn-primary">Editar</a>
+        <a href="{% url 'consultas:consultas_eliminar' Dispositivos.id %}" class="btn btn-danger">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+  </tbody>
+
+</table>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+
+{% block header%}
+<h3>Historial del Paciente</h3>
+{% endblock %}
+
+{% block content %}
+<table >
+  <head>
+    <tr class="table table-dark">
+      <td>#</td>
+      <td>Folio</td>
+      <td>Vacunas del Paciente</td>
+    </tr>
+  </head>
+  <tbody>
+    {% if object_list %}
+    {% for Inmunizaciones in object_list %}
+    <tr class="table-light">
+      <td>{{ Inmunizaciones.id }}</td>
+      <td>{{Inmunizaciones.folio}}</td>
+      <td>{{Inmunizaciones.vacunas_inyectadas}}</td>
+      <td>
+        <a href="{% url 'inmunizaciones:inmunizaciones_editar' Inmunizaciones.id %}" class="btn btn-primary">Editar</a>
+        <a href="{% url 'inmunizaciones:inmunizaciones_eliminar' Inmunizaciones.id %}" class="btn btn-danger">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+  </tbody>
+
+</table>
+{% endblock %}
