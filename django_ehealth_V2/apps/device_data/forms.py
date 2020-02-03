@@ -1,6 +1,6 @@
 from django import forms
 
-from ..diseases.models import Dispositivos
+from ..device_data.models import Dispositivos
 
 class DispositivosForm(forms.ModelForm):
     fields=[

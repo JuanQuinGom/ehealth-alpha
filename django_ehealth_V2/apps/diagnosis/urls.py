@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from ..diagnosis.views import  DiagnosticosList,DiagnosticosUpdate,DiagnosticosDelete,DiagnosticosDelete
+from ..diagnosis.views import  DiagnosticosList,DiagnosticosUpdate,DiagnosticosCreate,DiagnosticosDelete
 
 urlpatterns = [
     #url(r'^index$', index_patient),

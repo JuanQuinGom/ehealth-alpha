@@ -1,6 +1,6 @@
 from django import forms
 
-from..vaccines.models import Vacunaciones
+from ..vaccines.models import Vacunaciones
 
 class VacunacionesForm(forms.ModelForm):
     fields=[
@@ -9,9 +9,9 @@ class VacunacionesForm(forms.ModelForm):
     'descripcion',
     ]
     labels = {
-    'codigo': 'Código de Vacuna',
+    'codigo': 'Codigo de Vacuna',
     'nombre': 'Folio',
-    'descripcion': 'Descripción',
+    'descripcion': 'Descripcion',
     }
 
     widgets = {

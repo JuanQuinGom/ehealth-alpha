@@ -4,8 +4,8 @@ from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render
-from ..device.forms import DispositivosForm
-from ..device.models import Dispositivos
+from ..device_data.forms import DispositivosForm
+from ..device_data.models import Dispositivos
 
 # Create your views here.
 class DispositivosList(ListView):

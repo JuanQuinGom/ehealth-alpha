@@ -1,6 +1,6 @@
 from django import forms
 
-from..yellow_data.models import Datos_Amarillo
+from ..yellow_data.models import Datos_Amarillo
 
 class DatosAmarilloForm(forms.ModelForm):
     fields=[
@@ -23,7 +23,7 @@ class DatosAmarilloForm(forms.ModelForm):
     'peso':'Peso',
     'talla':'Talla',
     'etnia':'Etnia',
-    'fecha_embarazo_anterior':'Fecha último embarazo',
+    'fecha_embarazo_anterior':'Fecha ultimo embarazo',
     'estudios':'Estudios',
     'cantidad_fetos':'Cantidad de fetos',
     }

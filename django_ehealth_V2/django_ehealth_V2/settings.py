@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
     'apps.consult',
     #'apps.device_data',
     'apps.diagnosis',
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     'apps.personal_data',
     'apps.vaccines',
     'apps.yellow_data',
+    'apps.device_data'
 
 
 ]

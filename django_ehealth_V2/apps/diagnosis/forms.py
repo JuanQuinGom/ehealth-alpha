@@ -1,6 +1,6 @@
 from django import forms
 
-from ..personal_data.models import Diagnosticos
+from ..diagnosis.models import Diagnosticos
 
 class DiagnosticosForm(forms.ModelForm):
     class Meta:

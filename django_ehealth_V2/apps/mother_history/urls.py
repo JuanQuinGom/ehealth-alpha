@@ -1,4 +1,3 @@
-a
 from django.conf.urls import url
 
 from ..mother_history.views import Historial_MadresList, Historial_MadresCreate, Historial_MadresDelete, Historial_MadresUpdate

@@ -4,8 +4,8 @@ from django.http import HttpResponse
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render
-from ..consults.forms import ConsultasForm
-from ..consults.models import Consultas
+from ..consult.forms import ConsultasForm
+from ..consult.models import Consultas
 
 # Create your views here.
 class ConsultasList(ListView):

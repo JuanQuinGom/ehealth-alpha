@@ -2,7 +2,7 @@ from django import forms
 
 from ..patient_history.models import Historial_Paciente
 
-cass HistorialPacienteForm(forms.ModelForm):
+class HistorialPacienteForm(forms.ModelForm):
     class Meta:
         model = Historial_Paciente
         fields = [

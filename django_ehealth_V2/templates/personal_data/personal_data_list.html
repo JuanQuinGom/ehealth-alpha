@@ -1,10 +1,14 @@
 {% extends 'base/base.html' %}
+{% block title %}
+Datos Personales
+{% endblock %}
 
 {% block header%}
-<h3>Datos Personales</h3>
+<h2>Datos Personales del Paciente</h2>
 {% endblock %}
 
 {% block content %}
+{% if object_list %}
 <table >
   <head>
     <tr class="table table-dark">
@@ -19,7 +23,7 @@
     </tr>
   </head>
   <tbody>
-    {% if object_list %}
+
     {% for Datos_Personas in object_list %}
     <tr class="table-light">
       <td>{{ Datos_Personas.id }}</td>
@@ -35,12 +39,17 @@
         <a href="{% url 'datos_personales:datos_personales_eliminar' Datos_Personas.id %}" class="btn btn-danger">Eliminar</a>
       </td>
     </tr>
-    {% endfor %}
-
-    {% else %}
-    <h1>No hay registros</h1>
-    {% endif %}
   </tbody>
-
 </table>
+    {% endfor %}
+    {% else %}
+      <h1 class="text-center">No hay registros</h1>
+      <div class="text-center">
+          <a href="{% url 'datos_personales:datos_personales_crear' %}" class="btn btn-primary">Nuevo registro</a>
+      </div>
+
+    {% endif %}
 {% endblock %}
+    {% block footer %}
+
+    {%endblock%}

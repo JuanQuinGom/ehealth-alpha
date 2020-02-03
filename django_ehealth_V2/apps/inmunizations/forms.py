@@ -9,7 +9,7 @@ class InmunizacionesForm(forms.ModelForm):
     ]
     labels = {
     'folio':'Folio',
-    'vacunas_inyectadas':'Esquema de Vacunación',
+    'vacunas_inyectadas':'Esquema de Vacunacion',
     }
 
     widgets = {
