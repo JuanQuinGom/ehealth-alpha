@@ -1,13 +1,41 @@
 {% extends 'base/base.html'%}
+{% load widget_tweaks %}
 
-{% block content %}
-<form method="post">
-  {% csrf_token %}
-  {{form.as_p}}
-  <button type="submit">Guardar</button>
-</form>
+{% block title %}
+Ingresar Datos
 {% endblock %}
 
-{% block footer %}
+{% block header %}
+<h2>Ingresar datos del dispositivo</h2>
+{% endblock %}
+
+{% block content %}
+<br>
+  <form method="post">
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+      {{ hidden }}
+    {% endfor %}
+
+    {% for field in form.visible_fields %}
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        </div>
+        <div class="col-sm-5">
+          {{ field|add_class:'form-control' }}
+        </div>
+        <div class="col-sm-5">
+          {% for error in field.errors %}
+            <span class="help-block">{{ error }}</span>
+          {% endfor %}
+        </div>
+      </div>
+
+    {% endfor %}
+    <br>
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="{% url 'dispositivos:dispositivos_listar' %}" class="btn btn-info">Cancelar</a>
+  </form>
 
 {% endblock %}

@@ -16,15 +16,15 @@ class VacunacionesCreate(CreateView):
     model = Vacunaciones
     form_class = VacunacionesForm
     template_name = 'vaccines/vaccines_form.html'
-    success_url = reverse_lazy('vacunaciones:vacunaciones_listar')
+    success_url = reverse_lazy('vacunas:vacunas_listar')
 
 class VacunacionesUpdate(UpdateView):
     model = Vacunaciones
     form_class = VacunacionesForm
     template_name = 'vaccines/vaccines_form.html'
-    success_url = reverse_lazy('vacunaciones:vacunaciones_listar')
+    success_url = reverse_lazy('vacunas:vacunas_listar')
 
 class VacunacionesDelete(DeleteView):
     model = Vacunaciones
     template_name = 'vaccines/vaccines_delete.html'
-    success_url = reverse_lazy('vacunaciones:vacunaciones_listar')
+    success_url = reverse_lazy('vacunas:vacunas_listar')

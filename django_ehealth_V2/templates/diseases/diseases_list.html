@@ -1,38 +1,50 @@
 {% extends 'base/base.html' %}
 
+{% block title %}
+Catalogo Enfermedades
+{% endblock %}
+
 {% block header%}
-<h3>Catalogo de Enfermedades</h3>
+<h3>Biblioteca de Enfermedades</h3>
 {% endblock %}
 
 {% block content %}
-<table >
-  <head>
-    <tr class="table table-dark">
-      <td>#</td>
-      <td>Código</td>
-      <td>Nombre de Enfermedad</td>
-      <td>Descripción</td>
-    </tr>
-  </head>
-  <tbody>
-    {% if object_list %}
-    {% for Enfermedades in object_list %}
-    <tr class="table-light">
-      <td>{{ Enfermedades.id }}</td>
-      <td>{{Enfermedades.codigo}}</td>
-      <td>{{Enfermedades.nombre_enfermedad}}</td>
-      <td>{{Enfermedades.descripcion}}</td>
-      <td>
-        <a href="{% url 'enfermedades:enfermedades_editar' enfermedades.id %}" class="btn btn-primary">Editar</a>
-        <a href="{% url 'enfermedades:enfermedades_eliminar' enfermedades.id %}" class="btn btn-danger">Eliminar</a>
-      </td>
-    </tr>
-    {% endfor %}
+{% if object_list %}
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <table class="table table-responsive">
+      <head>
+        <tr class="table table-dark">
+          <td>#</td>
+          <td>Código</td>
+          <td>Nombre de Enfermedad</td>
+          <td>Descripción</td>
+          <td>Acciones</td>
+        </tr>
+      </head>
+      <tbody>
+
+        {% for Enfermedades in object_list %}
+        <tr class="table-light">
+          <td>{{ Enfermedades.id }}</td>
+          <td>{{Enfermedades.codigo}}</td>
+          <td>{{Enfermedades.nombre_enfermedad}}</td>
+          <td>{{Enfermedades.descripcion}}</td>
+          <td>
+            <a href="{% url 'enfermedades:enfermedades_editar' Enfermedades.id %}" class="btn btn-primary">Editar</a>
+            <a href="{% url 'enfermedades:enfermedades_eliminar' Enfermedades.id %}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+      </tbody>
+        {% endfor %}
+      </table>
+  </div>
+</div>
 
     {% else %}
-    <h1>No hay registros</h1>
+      <h1 class="text-center">No hay registros</h1>
     {% endif %}
-  </tbody>
-
-</table>
+<div class="text-center">
+    <a href="{% url 'enfermedades:enfermedades_crear' %}" class="btn btn-primary">Nuevo registro</a>
+</div>
 {% endblock %}

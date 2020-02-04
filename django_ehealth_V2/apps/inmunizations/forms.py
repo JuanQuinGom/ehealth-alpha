@@ -3,16 +3,19 @@ from django import forms
 from ..inmunizations.models import Inmunizaciones
 
 class InmunizacionesForm(forms.ModelForm):
-    fields=[
-    'folio',
-    'vacunas_inyectadas',
-    ]
-    labels = {
-    'folio':'Folio',
-    'vacunas_inyectadas':'Esquema de Vacunacion',
-    }
+    class Meta:
+        model = Inmunizaciones
 
-    widgets = {
-    'folio' : forms.Select(),
-    'vacunas_inyectadas':forms.CheckboxSelectMultiple(),
-    }
+        fields=[
+        'folio',
+        'vacunas_inyectadas',
+        ]
+        labels = {
+        'folio':'Folio',
+        'vacunas_inyectadas':'Esquema de Vacunacion',
+        }
+
+        widgets = {
+        'folio' : forms.Select(),
+        'vacunas_inyectadas':forms.CheckboxSelectMultiple(),
+        }

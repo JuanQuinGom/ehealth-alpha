@@ -23,22 +23,22 @@
   <li class="nav-item dropdown show">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Historial Clínico</a>
     <div class="dropdown-menu show" style="position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
-      <a class="dropdown-item" href="#">Vacunas</a>
-      <a class="dropdown-item" href="#">Datos dispositivos</a>
-      <a class="dropdown-item" href="#">Consultas</a>
-      <a class="dropdown-item" href="#">Diagnosticos</a>
-      <a class="dropdown-item" href="#">Consultas</a>
-      <a class="dropdown-item" href="#">Historial específico</a>
+      <a class="dropdown-item" href="{% url 'inmunizaciones:inmunizaciones_listar' %} ">Vacunas</a>
+      <a class="dropdown-item" href="{% url 'dispositivos:dispositivos_listar' %} ">Datos dispositivos</a>
+      <a class="dropdown-item" href="{% url 'consultas:consultas_listar' %} ">Consultas</a>
+      <a class="dropdown-item" href="{% url 'diagnosticos:diagnosticos_listar' %} ">Diagnosticos</a>
+      <a class="dropdown-item" href="{% url 'datos_amarillo:datos_amarillo_listar' %} ">Historial específico</a>
+      <a class="dropdown-item" href="{% url 'datos_obstetricos:datos_obstetricos_listar' %} ">Esquema obstetrico</a>
     </div>
   </li>
   <li class="nav-item dropdown show">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="true">Pacientes</a>
     <div class="dropdown-menu show" style="position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
-      <a class="dropdown-item" href="#">Datos del paciente</a>
+      <a class="dropdown-item" href="{% url 'datos_personales:datos_personales_listar' %}">Datos del paciente</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Historial Paciente</a>
-      <a class="dropdown-item" href="#">Historial Padre</a>
-      <a class="dropdown-item" href="#">Historial Madre</a>
+      <a class="dropdown-item" href="{% url 'historial_paciente:historial_paciente_listar' %} ">Historial enf. Paciente</a>
+      <a class="dropdown-item" href="{% url 'historial_padres:historial_padres_listar' %} ">Historial Padre</a>
+      <a class="dropdown-item" href="{% url 'historial_madres:historial_madres_listar' %} ">Historial Madre</a>
     </div>
   </li>
   <li class="nav-item dropdown show">
@@ -46,8 +46,8 @@
     <div class="dropdown-menu show" style="position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="bottom-start">
       <a class="dropdown-item" href="#">Generar usuario</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Catálogo enfermedades</a>
-      <a class="dropdown-item" href="#">Catálogo vacunas</a>
+      <a class="dropdown-item" href="{% url 'enfermedades:enfermedades_listar' %} ">Catálogo enfermedades</a>
+      <a class="dropdown-item" href="{% url 'vacunas:vacunas_listar' %} ">Catálogo vacunas</a>
     </div>
   </li>
   <li class="nav-item">

@@ -1,14 +1,16 @@
 {% extends 'base/base.html' %}
 
-{% block content %}
-<form method="post">
-  {% csrf_token %}
-  <h3>¿Desea eliminar el registro {{object.folio}}?</h3>
-  <button type="submit" class="btn btn-danger">Eliminar</button>
-  <a class="btn btn-default" href="{% url 'historial_padres:historial_padres_listar' %}">Cancelar</a>
-</form>
+{% block title %}
+Eliminar
 {% endblock %}
 
-{% block footer %}
-
+{% block content %}
+<div class="text-center">
+  <form method="post">
+    {% csrf_token %}
+    <h3>¿Desea eliminar el registro {{object.folio}}?</h3>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a class="btn btn-info" href="{% url 'historial_padres:historial_padres_listar' %}">Cancelar</a>
+  </form>
+</div>
 {% endblock %}

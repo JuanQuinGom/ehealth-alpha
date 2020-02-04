@@ -1,36 +1,48 @@
 {% extends 'base/base.html' %}
 
+{% block title %}
+Historial Paciente
+{% endblock %}
+
 {% block header%}
-<h3>Historial del Paciente</h3>
+<h3>Historial de enfermedades del paciente</h3>
 {% endblock %}
 
 {% block content %}
-<table >
-  <head>
-    <tr class="table table-dark">
-      <td>#</td>
-      <td>Folio</td>
-      <td>Enfermedades</td>
-    </tr>
-  </head>
-  <tbody>
-    {% if object_list %}
-    {% for Historial_Paciente in object_list %}
-    <tr class="table-light">
-      <td>{{ Historial_Paciente.id }}</td>
-      <td>{{Historial_Paciente.folio}}</td>
-      <td>{{Historial_Paciente.enfermedades}}</td>
-      <td>
-        <a href="{% url 'historial_paciente:historial_paciente_editar' Historial_Paciente.id %}" class="btn btn-primary">Editar</a>
-        <a href="{% url 'historial_paciente:historial_paciente_eliminar' Historial_Paciente.id %}" class="btn btn-danger">Eliminar</a>
-      </td>
-    </tr>
-    {% endfor %}
+{% if object_list %}
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <table class="table table-responsive">
+      <head>
+        <tr class="table table-dark">
+          <td>#</td>
+          <td>Folio</td>
+          <td>Enfermedades</td>
+          <td>Acciones</td>
+        </tr>
+      </head>
+      <tbody>
+
+        {% for Historial_Paciente in object_list %}
+        <tr class="table-light">
+          <td>{{ Historial_Paciente.id }}</td>
+          <td>{{Historial_Paciente.folio}}</td>
+          <td>{{Historial_Paciente.enfermedades}}</td>
+          <td>
+            <a href="{% url 'historial_paciente:historial_paciente_editar' Historial_Paciente.id %}" class="btn btn-primary">Editar</a>
+            <a href="{% url 'historial_paciente:historial_paciente_eliminar' Historial_Paciente.id %}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+      </tbody>
+        {% endfor %}
+      </table>
+  </div>
+</div>
 
     {% else %}
-    <h1>No hay registros</h1>
+      <h1 class="text-center">No hay registros</h1>
     {% endif %}
-  </tbody>
-
-</table>
+<div class="text-center">
+    <a href="{% url 'historial_paciente:historial_paciente_crear' %}" class="btn btn-primary">Nuevo registro</a>
+</div>
 {% endblock %}

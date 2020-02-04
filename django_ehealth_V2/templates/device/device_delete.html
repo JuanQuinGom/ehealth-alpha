@@ -1,12 +1,18 @@
 {% extends 'base/base.html' %}
 
+{% block title %}
+Eliminar
+{% endblock %}
+
 {% block content %}
-<form method="post">
-  {% csrf_token %}
-  <h3>¿Desea eliminar el registro {{object.folio}}?</h3>
-  <button type="submit" class="btn btn-danger">Eliminar</button>
-  <a class="btn btn-default" href="{% url 'dispositivos:dispositivos_listar' %}">Cancelar</a>
-</form>
+<div class="text-center">
+  <form method="post">
+    {% csrf_token %}
+    <h3>¿Desea eliminar el registro {{object.folio}}?</h3>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a class="btn btn-info" href="{% url 'dispositivos:dispositivos_listar' %}">Cancelar</a>
+  </form>
+</div>
 {% endblock %}
 
 {% block footer %}

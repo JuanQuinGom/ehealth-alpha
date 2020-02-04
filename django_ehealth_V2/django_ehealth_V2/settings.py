@@ -51,8 +51,6 @@ INSTALLED_APPS = [
     'apps.vaccines',
     'apps.yellow_data',
     'apps.device_data'
-
-
 ]
 
 MIDDLEWARE = [
