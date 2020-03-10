@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^historial_madre/', include('apps.mother_history.urls', namespace="historial_madres")),
     url(r'^datos_obstetricos/', include('apps.obstetrical_data.urls', namespace="datos_obstetricos")),
     url(r'^inmunizaciones/', include('apps.inmunizations.urls', namespace="inmunizaciones")),
+    url(r'menu/', include('apps.principal.urls', namespace="menu_2")),
 
 
 ]

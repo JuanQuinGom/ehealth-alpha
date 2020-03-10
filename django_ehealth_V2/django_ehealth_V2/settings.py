@@ -50,7 +50,9 @@ INSTALLED_APPS = [
     'apps.personal_data',
     'apps.vaccines',
     'apps.yellow_data',
-    'apps.device_data'
+    'apps.device_data',
+    'apps.homepage',
+    'apps.principal',
 ]
 
 MIDDLEWARE = [
@@ -91,8 +93,8 @@ DATABASES = {
      'default': {
          'ENGINE': 'sql_server.pyodbc',
          'NAME': 'masterprueba',
-         'USER': 'rootadmin',
-         'PASSWORD': 'Sierra#117',
+         'USER': 'juanqu',
+         'PASSWORD': 'sierra#117',
          'HOST': 'masterprueba.database.windows.net',
          'PORT': '1433',
          'OPTIONS': {

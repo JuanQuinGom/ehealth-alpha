@@ -25,7 +25,6 @@ Historial materno
         </tr>
       </head>
       <tbody>
-        {% if object_list %}
         {% for Historial_Madres in object_list %}
         <tr class="table-light">
           <td>{{ Historial_Madres.id }}</td>
@@ -50,4 +49,5 @@ Historial materno
 <div class="text-center">
     <a href="{% url 'historial_madres:historial_madres_crear' %}" class="btn btn-primary">Nuevo registro</a>
 </div>
+
 {% endblock %}
