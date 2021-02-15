@@ -18,6 +18,9 @@ from django.urls import path
 from django.conf.urls import url, include
 from django.contrib.auth.views import LoginView, logout_then_login, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
+# add this to import our views file
+#from ehealth_alpha import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     ### Menus de las apps ###
@@ -36,7 +39,8 @@ urlpatterns = [
     url(r'^datos_obstetricos/', include(('apps.obstetrical_data.urls','apps.obstetrical_data'), namespace="datos_obstetricos")),
     url(r'^inmunizaciones/', include(('apps.inmunizations.urls','apps.inmunizations'), namespace="inmunizaciones")),
     url(r'usuario/', include(('apps.usuario.urls','apps.usuario'), namespace="usuario")),
-    url(r'modelo/', views.result, name = "result"))
+    #url(r'modelo/', include(('apps.modelPregnancy.urls','apps.modelPregnancy'), namespace="result:resultado"), name = "result"),
+    url(r'modelo/', include(('apps.modelPregnancy.urls','apps.modelPregnancy'), namespace="modelo")),
     #""" Informacion para login y logout """
 	url(r'^logout/', logout_then_login, name='logout'),
     url(r'accounts/login/', LoginView.as_view(), name="login"),

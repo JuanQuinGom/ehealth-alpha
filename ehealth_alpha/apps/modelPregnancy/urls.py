@@ -1,9 +1,10 @@
 from django.conf.urls import url
 from django.contrib.auth.decorators import login_required
-from ..patient_history.views import HistorialPacienteList,HistorialPacienteCreate,HistorialPacienteDelete,HistorialPacienteUpdate
+from ..modelPregnancy.views import home, getPredictions, result
 
 urlpatterns = [
     #url(r'^index$', index_patient),
-    url(r'^modelo$', login_required(HistorialPacienteList.as_view()),name='historial_paciente_listar'),
+    url(r'^/resultado', result, name = "resultado"),
+    url(r'^$', home, name='home'),
     
 ]
