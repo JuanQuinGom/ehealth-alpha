@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+
+{% block header%}
+<h3>Biblioteca de Vacunas</h3>
+{% endblock %}
+
+{% block content %}
+{% if object_list %}
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <table class="table table-responsive">
+      <head>
+        <tr class="table table-dark">
+          <td>#</td>
+          <td>Código</td>
+          <td>Nombre</td>
+          <td>Descripcion</td>
+          <td>Acciones</td>
+        </tr>
+      </head>
+
+      <tbody>
+        {% for Vacunaciones in object_list %}
+        <tr class="table-light">
+          <td>{{Vacunaciones.id}}</td>
+          <td>{{ Vacunaciones.codigo }}</td>
+          <td>{{Vacunaciones.nombre}}</td>
+          <td>{{Vacunaciones.descripcion}}</td>
+          <td>
+            <a href="{% url 'vacunas:vacunas_editar' Vacunaciones.id %}" class="btn btn-primary">Editar</a>
+            <a href="{% url 'vacunas:vacunas_eliminar' Vacunaciones.id %}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+      </tbody>
+        {% endfor %}
+    </table>
+  </div>
+</div>
+
+    {% else %}
+      <h1 class="text-center">No hay registros</h1>
+    {% endif %}
+    <div class="text-center">
+        <a href="{% url 'vacunas:vacunas_crear' %}" class="btn btn-primary">Nuevo registro</a>
+    </div>
+{% endblock %}

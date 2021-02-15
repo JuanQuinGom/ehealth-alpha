@@ -1,0 +1,57 @@
+{% extends 'base/base.html'%}
+{% load widget_tweaks %}
+
+{% block title %}
+Ingresar Datos
+{% endblock %}
+
+{% block header %}
+<h2 style="text-align: center;">Ingresar datos del paciente</h2>
+
+{% endblock %}
+
+{% block content %}
+<br>
+<div style="margin-left: 10%; padding-right: 20%;">
+  <form method="post" >
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+      {{ hidden }}
+    {% endfor %}
+
+    {% for field in form.visible_fields %}
+      <div class="form-group row">
+        <div class="col-sm-3" style="padding-left: 50px;">
+          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        </div>
+          {% if field.label != "Fecha de Nacimiento" %}
+          <div class="col-sm-4">
+          {{ field|add_class:'form-control' }}
+          </div>
+          {% else %}
+
+            <div class="col-sm-4">
+              <div id='id_fecha_nacimiento'>
+                <input class="form-control" type="date" style="text-align: center;" id="example-date-input" name = "fecha_nacimiento">
+              </div>
+            </div>
+
+          {% endif %}
+        
+          {% for error in field.errors %}
+            <span class="help-block">{{ error }}</span>
+          {% endfor %}
+        
+      </div>
+
+    {% endfor %}
+    <br>
+    <div style="text-align: center;">
+      <button type="submit" class="btn btn-success">Guardar</button>
+      <a href="{% url 'datos_personales:datos_personales_listar' %}" class="btn btn-info">Cancelar</a>  
+    </div>
+  </form>
+</div>
+  
+
+{% endblock %}

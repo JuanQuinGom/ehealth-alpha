@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Consultas
+{% endblock %}
+
+{% block header%}
+<h2>Historial de consultas</h2>
+{% endblock %}
+
+{% block content %}
+{% if object_list %}
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <table class="table table-responsive">
+      <head>
+        <tr class="table table-dark">
+          <td>#</td>
+          <td>Folio</td>
+          <td># Consulta</td>
+          <td>Fecha Consulta</td>
+          <td>Edad Gestacional</td>
+          <td>Peso</td>
+          <td>Altura Uterina</td>
+          <td>FCF</td>
+          <td>Freq. Respiratoria</td>
+          <td>Glucemia</td>
+          <td>Acciones</td>
+        </tr>
+      </head>
+      <tbody>
+
+        {% for Consultas in object_list %}
+        <tr class="table-light">
+          <td>{{ Consultas.id }}</td>
+          <td>{{ Consultas.folio }}</td>
+          <td>{{ Consultas.no_consulta }}</td>
+          <td>{{ Consultas.fecha_consulta }}</td>
+          <td>{{ Consultas.edad_gestacional }}</td>
+          <td>{{ Consultas.peso }}</td>
+          <td>{{ Consultas.altura_uterina }}</td>
+          <td>{{ Consultas.FCF }}</td>
+          <td>{{ Consultas.freq_respiratoria }}</td>
+          <td>{{ Consultas.glucemia }}</td>
+          <td>
+            <a href="{% url 'consultas:consultas_editar' Consultas.id %}" class="btn btn-primary">Editar</a>
+            <a href="{% url 'consultas:consultas_eliminar' Consultas.id %}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+      </tbody>
+        {% endfor %}
+      </table>
+  </div>
+</div>
+
+    {% else %}
+      <h1 class="text-center">No hay registros</h1>
+    {% endif %}
+    <div class="text-center">
+        <a href="{% url 'consultas:consultas_crear' %}" class="btn btn-primary">Nuevo registro</a>
+    </div>
+
+</table>
+{% endblock %}

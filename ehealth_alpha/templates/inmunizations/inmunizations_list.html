@@ -1,0 +1,47 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Inmunizaciones
+{% endblock %}
+
+{% block header%}
+<h2>Datos de inmunización del Paciente</h2>
+{% endblock %}
+
+{% block content %}
+{% if object_list %}
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <table class="table table-responsive">
+      <head>
+        <tr class="table table-dark">
+          <td>#</td>
+          <td>Folio</td>
+          <td>Vacunas del Paciente</td>
+        </tr>
+      </head>
+  <tbody>
+    {% for Inmunizaciones in object_list %}
+    <tr class="table-light">
+      <td>{{ Inmunizaciones.id }}</td>
+      <td>{{Inmunizaciones.folio}}</td>
+      <td>{{Inmunizaciones.vacunas_inyectadas}}</td>
+      <td>
+        <a href="{% url 'inmunizaciones:inmunizaciones_editar' Inmunizaciones.id %}" class="btn btn-primary">Editar</a>
+        <a href="{% url 'inmunizaciones:inmunizaciones_eliminar' Inmunizaciones.id %}" class="btn btn-danger">Eliminar</a>
+      </td>
+    </tr>
+  </tbody>
+  {% endfor %}
+    </table>
+  </div>
+</div>
+
+    {% else %}
+      <h1 class="text-center">No hay registros</h1>
+    {% endif %}
+  </tbody>
+  <div class="text-center">
+      <a href="{% url 'inmunizaciones:inmunizaciones_crear' %}" class="btn btn-primary">Nuevo registro</a>
+  </div>
+{% endblock %}

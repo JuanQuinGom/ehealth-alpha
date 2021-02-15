@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+{% block title %}
+Datos Personales
+{% endblock %}
+
+{% block header%}
+<h2>Datos Personales del Paciente</h2>
+{% endblock %}
+
+{% block content %}
+{% if object_list %}
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <table class="table table-responsive">
+      <head>
+        <tr class="table table-dark">
+          <td>#</td>
+          <td>Folio</td>
+          <td>Nombre</td>
+          <td>Apellido Paterno</td>
+          <td>Apellido Materno</td>
+          <td>Edad</td>
+          <td>Fecha Nacimiento</td>
+          <td>Domicilio</td>
+          <td>Acciones</td>
+        </tr>
+      </head>
+      <tbody>
+
+        {% for Datos_Personas in object_list %}
+        <tr class="table-light">
+          <td>{{ Datos_Personas.id }}</td>
+          <td>{{Datos_Personas.folio}}</td>
+          <td>{{Datos_Personas.nombre}}</td>
+          <td>{{Datos_Personas.apellido_paterno}}</td>
+          <td>{{Datos_Personas.apellido_materno}}</td>
+          <td>{{Datos_Personas.edad}}</td>
+          <td>{{Datos_Personas.fecha_nacimiento}}</td>
+          <td>{{Datos_Personas.domicilio}}</td>
+          <td>
+            <a href="{% url 'datos_personales:datos_personales_editar' Datos_Personas.id %}" class="btn btn-primary">Editar</a>
+            <a href="{% url 'datos_personales:datos_personales_eliminar' Datos_Personas.id %}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+      </tbody>
+        {% endfor %}
+      </table>
+  </div>
+</div>
+
+    {% else %}
+      <h1 class="text-center">No hay registros</h1>
+    {% endif %}
+<div class="text-center">
+    <a href="{% url 'datos_personales:datos_personales_crear' %}" class="btn btn-primary">Nuevo registro</a>
+</div>
+{% endblock %}

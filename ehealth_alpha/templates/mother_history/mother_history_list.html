@@ -1,0 +1,53 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Historial materno
+{% endblock %}
+
+{% block header%}
+<h3>Historial Materno del Paciente</h3>
+{% endblock %}
+
+{% block content %}
+{% if object_list %}
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <table class="table table-responsive">
+      <head>
+        <tr class="table table-dark">
+          <td>#</td>
+          <td>Folio</td>
+          <td>Nombre</td>
+          <td>Apellido Paterno</td>
+          <td>Apellido Materno</td>
+          <td>Enfermedades</td>
+          <td>Acciones</td>
+        </tr>
+      </head>
+      <tbody>
+        {% for Historial_Madres in object_list %}
+        <tr class="table-light">
+          <td>{{ Historial_Madres.id }}</td>
+          <td>{{Historial_Madres.folio}}</td>
+          <td>{{Historial_Madres.apellido_paterno}}</td>
+          <td>{{Historial_Madres.apellido_materno}}</td>
+          <td>{{Historial_Madres.enfermedades}}</td>
+          <td>
+            <a href="{% url 'historial_madres:historial_madres_editar' Historial_Madres.id %}" class="btn btn-primary">Editar</a>
+            <a href="{% url 'historial_madres:historial_madres_eliminar' Historial_Madres.id %}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+      </tbody>
+        {% endfor %}
+      </table>
+  </div>
+</div>
+
+    {% else %}
+      <h1 class="text-center">No hay registros</h1>
+    {% endif %}
+<div class="text-center">
+    <a href="{% url 'historial_madres:historial_madres_crear' %}" class="btn btn-primary">Nuevo registro</a>
+</div>
+
+{% endblock %}

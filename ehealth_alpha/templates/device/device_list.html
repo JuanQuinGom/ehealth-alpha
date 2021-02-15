@@ -1,0 +1,58 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Datos del Dispositivo
+{% endblock %}
+
+{% block header%}
+<h2>Datos del dispositivo del paciente</h2>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <table class="table table-responsive">
+      <head>
+        <tr class="table table-dark">
+          <td>#</td>
+          <td>Folio</td>
+          <td># Registro</td>
+          <td>ID dispositivo</td>
+          <td>Fecha Registro</td>
+          <td>Presión Diastólica</td>
+          <td>Presión Sistólica</td>
+          <td>Pulso Cardiaco</td>
+          <td>Temperatura</td>
+          <td>Acciones</td>
+        </tr>
+      </head>
+      <tbody>
+        {% if object_list %}
+        {% for Dispositivos in object_list %}
+        <tr class="table-light">
+          <td>{{ Dispositivos.id }}</td>
+          <td>{{ Dispositivos.folio }}</td>
+          <td>{{ Dispositivos.no_registro }}</td>
+          <td>{{ Dispositivos.id_device }}</td>
+          <td>{{ Dispositivos.fecha_registro }}</td>
+          <td>{{ Dispositivos.presion_diastolica }}</td>
+          <td>{{ Dispositivos.presion_sistolica }}</td>
+          <td>{{ Dispositivos.pulso_cardiaco }}</td>
+          <td>{{ Dispositivos.temperatura }}</td>
+          <td>
+            <a href="{% url 'dispositivos:dispositivos_editar' Dispositivos.id %}" class="btn btn-primary">Editar</a>
+            <a href="{% url 'dispositivos:dispositivos_eliminar' Dispositivos.id %}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+      </tbody>
+        {% endfor %}
+      </table>
+    </div>
+</div>
+    {% else %}
+      <h1 class="text-center">No hay registros</h1>
+    {% endif %}
+<div class="text-center">
+  <a href="{% url 'dispositivos:dispositivos_crear' %}" class="btn btn-primary">Ingresar Registro</a>
+</div>
+{% endblock %}
