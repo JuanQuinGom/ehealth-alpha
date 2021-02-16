@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^diagnosticos/', include(('apps.diagnosis.urls','apps.diagnosis'), namespace="diagnosticos")),
     url(r'^consultas/', include(('apps.consult.urls','apps.consult'), namespace="consultas")),
     url(r'^dispositivos/', include(('apps.device_data.urls','apps.device_data'), namespace="dispositivos")),
+    url(r'^modelos/', include(('apps.modelPregnancy.urls','apps.modelPregnancy'), namespace="ModelosPregnancy")),
     url(r'^vacunas/', include(('apps.vaccines.urls','apps.vaccines'), namespace="vacunas")),
     url(r'^datos_amarillo/', include(('apps.yellow_data.urls','apps.yellow_data'), namespace="datos_amarillo")),
     url(r'^historial_padre/', include(('apps.father_history.urls','apps.father_history'), namespace="historial_padres")),

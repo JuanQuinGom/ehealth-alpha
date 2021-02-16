@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'apps.yellow_data',
     'apps.device_data',
     'apps.usuario',
+    'apps.modelPregnancy',
     'widget_tweaks',
 ]
 

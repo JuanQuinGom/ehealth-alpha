@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>Titanic survival prediction</h1>
-    <form action="{% url 'modelo:resultado' %}">
+    <form action="{% urls 'result' %}">
       {% csrf_token %}
       
       <p>Passenger Class:</p>

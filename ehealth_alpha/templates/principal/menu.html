@@ -169,7 +169,7 @@
             <h4 class="card-title">
               <a href="{% url 'datos_amarillo:datos_amarillo_listar' %}">Hoja Descriptiva</a>
             </h4>
-            <p class="card-text">Acceder al historial referente a la hoja amarillo de las pacientes.</p>
+            <p class="card-text">Historial referente a la hoja obstétrica.</p>
           </div>
           <div class="card-footer">
             <a href="{% url 'datos_amarillo:datos_amarillo_listar' %}" class="btn btn-primary">Acceder</a>
@@ -223,10 +223,13 @@
       </div>
 
     </div>
+
+    
     <!-- /.row -->
 
     <!-- Features Section -->
-    <h1 class="my-4">Opciones de Registro Adicional</h1>
+    <h1 class="my-4">Registro de catálogo universal</h1>
+    <p> Esta Opción es unicamente para ingreso de información referente al Catálogo Internacional de Enfermedades (CIE) y al Catálogo de Vacunas Internacional</p>
 
     <div class="row">
 
@@ -262,15 +265,20 @@
       </div>
 
       <div class="col-lg-4 mb-4 portfolio-item">
-      <div class="card h-100">
-        <h4 class="card-header">Editar Folios</h4>
-        <div class="card-body">
-          <p class="card-text">Editar folios de pacientes.</p>
-        </div>
-        <div class="card-footer">
-          <a href="{% url 'datos_personales:datos_personales_listar' %}" class="btn btn-primary">Editar Registros</a>
+        <div class="card h-100">
+          <a href="{% url 'historial_madres:historial_madres_listar' %}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="{% url 'ModelosPregnancy:ModelosPregnancy_listar' %}">Diagnosticar</a>
+            </h4>
+            <p class="card-text">Detectar de acuerdo a la información de la paciente si puede presentar hipertensión durante el embarazo.</p>
+          </div>
+          <div class="card-footer">
+            <a href="{% url 'ModelosPregnancy:ModelosPregnancy_listar' %}" class="btn btn-primary">Acceder</a>
+          </div>
         </div>
       </div>
+
     </div>
     </div>
     <!-- /.row -->

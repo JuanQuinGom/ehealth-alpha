@@ -1,0 +1,67 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Datos del Dispositivo
+{% endblock %}
+
+{% block header%}
+<h2>Datos de diagnóstico</h2>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <table class="table table-responsive">
+      <head>
+        <tr class="table table-dark">
+          <td>#</td>
+          <td>Folio</td>
+          <td>Peso</td>
+          <td>Presión sistólica</td>
+          <td>Presión diastólica</td>
+          <td>Pulso cardíaco</td>
+          <td>Frecuencia respiratoria</td>
+          <td>Temperatura</td>
+          <td>Vacuna pentavalente</td>
+          <td>Vacuna difterica</td>
+          <td>Edad</td>
+          <td>Embarazo previo</td>
+          <td>Diagnóstico</td>
+          <td>Acciones</td>
+        </tr>
+
+      </head>
+      <tbody>
+        {% if object_list %}
+        {% for Modelos in object_list %}
+        <tr class="table-light">
+          <td>{{ Modelos.id }}</td>
+          <td>{{ Modelos.folio }}</td>
+          <td>{{ Modelos.peso }}</td>
+          <td>{{ Modelos.presion_sistolica }}</td>
+          <td>{{ Modelos.presion_diastolica }}</td>
+          <td>{{ Modelos.pulso_cardiaco }}</td>
+          <td>{{ Modelos.frecuencia_respiratoria }}</td>
+          <td>{{ Modelos.temperatura }}</td>
+          <td>{{ Modelos.pentavalente }}</td>
+          <td>{{ Modelos.difterica }}</td>
+          <td>{{ Modelos.edad }}</td>
+          <td>{{ Modelos.embarazo_previo }}</td>
+          <td>{{ Modelos.diagnostico }}</td>
+          <td>
+            <a href="{% url 'ModelosPregnancy:ModelosPregnancy_editar' Modelos.id %}" class="btn btn-primary">Editar</a>
+            <a href="{% url 'ModelosPregnancy:ModelosPregnancy_eliminar' Modelos.id %}" class="btn btn-danger">Eliminar</a>
+          </td>
+        </tr>
+      </tbody>
+        {% endfor %}
+      </table>
+    </div>
+</div>
+    {% else %}
+      <h1 class="text-center">No hay registros</h1>
+    {% endif %}
+<div class="text-center">
+  <a href="{% url 'ModelosPregnancy:ModelosPregnancy_crear' %}" class="btn btn-primary">Ingresar Registro</a>
+</div>
+{% endblock %}
